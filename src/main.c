@@ -33,6 +33,18 @@ int main(){
     printf("Lista apos adicionar 40 no final: ");
     printList(&lista);
 
+    reverseList(&lista);
+    printf("Lista invertida: ");
+    printList(&lista);
+
+
+    List lista_duplicada;
+    duplicateList(&lista, &lista_duplicada);
+    printf("Lista duplicada: ");
+    printList(&lista_duplicada);
+
+    printf("valor maximo: %d\n", findMax(&lista));
+    printf("valor minimo: %d\n", findMin(&lista));
     freeList(&lista);
 
     system("pause");

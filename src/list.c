@@ -166,3 +166,56 @@ void reverseList(List* list){
     list->head = prev;
 }
 
+// funcao para duplicar a lista
+void duplicateList(List* list, List* new_list){
+    Node* temp = list->head;
+
+    // inicializa a nova lista
+    initList(new_list);
+
+    // percorre a lista original e adiciona os valores na nova lista
+    while(temp != NULL){
+        addToEnd(new_list, temp->data);
+        temp = temp->next;
+    }
+}
+
+// funcao pra encontrar o valor máximo na lista
+int findMax(List* list){
+    if(list->head == NULL){
+        printf("List is empty.\n");
+        return -1;
+    }
+
+    int max = list->head->data;
+    Node* temp = list->head->next;
+
+    while(temp != NULL){
+        if(temp->data > max){
+            max = temp->data;
+        }
+        temp = temp->next;
+    }
+
+    return max;
+}
+
+// funcao pra encontrar o valor minimo da lista
+int findMin(List* list){
+    if(list->head == NULL){
+        printf("List is empty.\n");
+        return -1;
+    }
+
+    int min = list->head->data;
+    Node* temp = list->head->next;
+
+    while(temp != NULL){
+        if(temp->data < min){
+            min = temp->data;
+        }
+        temp = temp->next;
+    }
+
+    return min;
+}
