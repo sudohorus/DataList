@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "list.h"
+#include "../include/list.h"
 
 // função para inicializar a lista. Ela começa vazia, com o ponteiro 'head' apontando para NULL
 void initList(List* list){
@@ -149,3 +149,20 @@ void addToEnd(List* list, int value){
         temp->next = new_node;
     }
 }
+
+// funcao para inverter a lista
+void reverseList(List* list){
+    Node* prev = NULL;
+    Node* curr = list->head;
+    Node* next = NULL;
+
+    while(curr != NULL){
+        next = curr->next;  // salva o próximo nó
+        curr->next = prev;  // inverte o ponteiro
+        prev = curr;        // avança para o próximo nó
+        curr = next;        // avança para o próximo nó
+    }
+
+    list->head = prev;
+}
+

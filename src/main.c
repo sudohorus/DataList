@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "list.h"
+#include "../include/list.h"
 #include <stdlib.h>
 
 int main(){
@@ -7,6 +7,7 @@ int main(){
 
     initList(&lista);
 
+    printf("hello");
     addToList(&lista, 20);
     addToList(&lista, 2);
     addToList(&lista, 30);

@@ -30,5 +30,13 @@ int countList(List* list);
 int isListEmpty(List* list);
 // procura valor na lista
 int searchList(List* list, int value);
+// funcao para inverter a lista
+void reverseList(List* list);
+// funcao para duplicar a lsita
+void duplicateList(List* list, List* new_list);
+// funcao para encontrar o valor maximo
+int findMax(List* list);
+// funcao para encontrar o valor minimo
+int findMin(List* list);
 
 #endif
