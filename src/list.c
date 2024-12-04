@@ -269,3 +269,54 @@ void sortList(List* list){
         i = i->next;
     }
 }
+
+// combina duas listas em uma única lista
+void mergeLists(List* list1, List* list2, List* mergedList){
+    // inicializa a lista de destino mergedList como vazia
+    initList(mergedList);
+
+    // itera pelos nós da primeira lista (list1)
+    Node* temp = list1->head;
+    while(temp != NULL){
+        // adiciona o dado do nó atual de list1 no final de mergedList
+        addToEnd(mergedList, temp->data);
+        temp = temp->next;
+    }
+
+    // itera pelos nós da segunda lista (list2)
+    temp = list2->head;
+    while(temp != NULL){
+        // adiciona o dado do nó atual de list2 no final de mergedList
+        addToEnd(mergedList, temp->data);
+        temp = temp->next;
+    }
+}
+// retorna o valor N do elemento na lista
+int findNthElement(List* list, int n){
+    Node* temp = list->head;
+    int index = 0;
+
+    while(temp!=NULL){
+        if(index == n){
+            return temp->data;
+        }
+        index++;
+        temp = temp->next;
+    }
+
+    printf("Index out of bounds.\n");
+    return -1;
+}
+
+// encontra o elemento do meio da lista
+int findMiddle(List* list){
+    Node* slow = list->head;
+    Node* fast = list->head;
+
+    while(fast != NULL && fast->next != NULL){
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+
+    return slow ? slow->data : -1;
+}

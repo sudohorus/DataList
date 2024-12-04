@@ -42,5 +42,12 @@ int findMin(List* list);
 void removeDuplicates(List* list);
 // ordena a lista em ordem crescente
 void sortList(List* list);
+// combina duas listas em uma única lista
+void mergeLists(List* list1, List* list2, List* mergedList);
+// retorna o valor N do elemento na lista
+int findNthElement(List* list, int n);
+// encontra o elemento do meio da lista
+int findMiddle(List* list);
+
 
 #endif
