@@ -38,7 +38,9 @@ void duplicateList(List* list, List* new_list);
 int findMax(List* list);
 // funcao para encontrar o valor minimo
 int findMin(List* list);
-// remove elementos duplicados da lsita
+// remove elementos duplicados da lista
 void removeDuplicates(List* list);
+// ordena a lista em ordem crescente
+void sortList(List* list);
 
 #endif

@@ -223,17 +223,49 @@ int findMin(List* list){
 // remove elementos duplicados da lista
 void removeDuplicates(List* list){
     Node* current = list->head;
-    while (current != NULL){
+    // percorre a lista principal
+    while (current != NULL){        
         Node* runner = current;
+        // percorre os nós após o atual para buscar duplicados
         while(runner->next != NULL){
+            //se o próximo nó tem o mesmo valor do nó atual
             if(runner->next->data == current->data){
+                // guarda o nó duplicado pra liberar a memoria
                 Node* duplicate = runner->next;
+                // remove o nó duplicado
                 runner->next = runner->next->next;
+                // libera a memoria do nó duplicado
                 free(duplicate);
             }else{
+                // caso nao seja duplicado, vai pro próximo
                 runner = runner->next;
             }
         }
         current = current->next;
+    }
+}
+
+// ordena a lista em ordem crescente
+void sortList(List* list){
+    // se a lista esta vazia, não faz anda
+    if(list->head == NULL) return;
+    
+    Node* i = list->head;
+    while(i != NULL){
+        Node* j = i->next;
+        // compara o nó atual com todos os nós seguintes
+        while(j != NULL){
+            // se o valor do nó atual for maior que o do nó seguinte
+            if(i->data > j->data){
+                // troca os valores dos nós
+                int temp = i->data;
+                i->data = j->data;
+                j->data = temp;
+            }
+            // avanca para o próximo nó
+            j = j->next;
+        }
+        // avança para o proximo nó da lista principal
+        i = i->next;
     }
 }
