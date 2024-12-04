@@ -3,7 +3,7 @@
 
 // definindo a estrutura de um nó. Cada nó armazena um valor inteiro e um ponteiro para o próximo nó.
 typedef struct Node{
-    int data;           // valor armazenado no nó
+    void* data;           // valor armazenado no nó
     struct Node* next;  // ponteiro para o próximo nó na lista
 } Node;
 
@@ -38,5 +38,7 @@ void duplicateList(List* list, List* new_list);
 int findMax(List* list);
 // funcao para encontrar o valor minimo
 int findMin(List* list);
+// remove elementos duplicados da lsita
+void removeDuplicates(List* list);
 
 #endif

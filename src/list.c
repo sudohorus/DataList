@@ -219,3 +219,21 @@ int findMin(List* list){
 
     return min;
 }
+
+// remove elementos duplicados da lista
+void removeDuplicates(List* list){
+    Node* current = list->head;
+    while (current != NULL){
+        Node* runner = current;
+        while(runner->next != NULL){
+            if(runner->next->data == current->data){
+                Node* duplicate = runner->next;
+                runner->next = runner->next->next;
+                free(duplicate);
+            }else{
+                runner = runner->next;
+            }
+        }
+        current = current->next;
+    }
+}
