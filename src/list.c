@@ -313,10 +313,30 @@ int findMiddle(List* list){
     Node* slow = list->head;
     Node* fast = list->head;
 
-    while(fast != NULL && fast->next != NULL){
-        slow = slow->next;
+    while(fast != NULL && fast->next != NULL){        slow = slow->next;
         fast = fast->next->next;
     }
 
     return slow ? slow->data : -1;
+}
+
+// remove o ultimo item da lista
+void removeLast(List* list){
+    if(list->head == NULL) return;
+
+    Node* temp = list->head;
+    Node* prev = NULL;
+
+    while(temp->next != NULL){
+        prev = temp;
+        temp = temp->next;
+    }
+
+    if(prev != NULL){
+        prev->next = NULL;
+    }else{
+        list->head = NULL; //lista tinha apenas um elemento
+    }
+
+    free(temp);
 }

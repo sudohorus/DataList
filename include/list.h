@@ -48,6 +48,8 @@ void mergeLists(List* list1, List* list2, List* mergedList);
 int findNthElement(List* list, int n);
 // encontra o elemento do meio da lista
 int findMiddle(List* list);
+// remove o último elemento da lista
+void removeLast(List* list);
 
 
 #endif
