@@ -50,6 +50,8 @@ int findNthElement(List* list, int n);
 int findMiddle(List* list);
 // remove o último elemento da lista
 void removeLast(List* list);
-
-
+// funcao pra duplicar os elementos da lista
+void duplicateElements(List* list);
+// função para remover todos os elementos maiores que um valor específico
+void removeGreaterThan(List* list, int value);
 #endif

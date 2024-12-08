@@ -313,7 +313,8 @@ int findMiddle(List* list){
     Node* slow = list->head;
     Node* fast = list->head;
 
-    while(fast != NULL && fast->next != NULL){        slow = slow->next;
+    while(fast != NULL && fast->next != NULL){ 
+        slow = slow->next;
         fast = fast->next->next;
     }
 
@@ -331,7 +332,7 @@ void removeLast(List* list){
         prev = temp;
         temp = temp->next;
     }
-
+    
     if(prev != NULL){
         prev->next = NULL;
     }else{
@@ -339,4 +340,42 @@ void removeLast(List* list){
     }
 
     free(temp);
+}
+
+// funcao pra duplicar os elementos da lista
+void duplicateElements(List* list){
+    Node* temp = list->head;
+    while (temp != NULL){
+        Node* new_node = (Node*)malloc(sizeof(Node));
+        if(new_node == NULL){
+            printf("memory allocation error.\n");
+            return;
+        }
+        new_node->data = temp->data;
+        new_node->next = temp->next;
+        temp->next = new_node;
+        temp = new_node->next;
+    }
+}
+
+// função para remover todos os elementos maiores que um valor específico
+void removeGreaterThan(List* list, int value){
+    Node* temp = list->head;
+    Node* prev = NULL;
+
+    while(temp!= NULL){
+        if(temp->data > value){
+            if(prev == NULL){
+                list->head = temp->next;
+            }else{
+                prev->next = temp->next;
+            }
+            Node* toDelete = temp;
+            temp = temp->next;
+            free(toDelete);
+        }else{
+            prev = temp;
+            temp = temp->next;
+        }
+    }
 }
